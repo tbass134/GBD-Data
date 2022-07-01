@@ -34,11 +34,15 @@ if selected_state is not None:
     st.header("Risks")
     st.bar_chart(selected_data.Risk.value_counts().sort_values(ascending=True))
 
-    st.header("Top 5 Risk Factors")
-    st.write(selected_data.Risk.value_counts().sort_values(ascending=False).head(5))
+    col1, col2, col3 = st.columns(3)
 
-    st.header("Age Distribution")
-    st.write(selected_data.Age.value_counts().sort_values(ascending=True))
+    with col1:
+        st.header("Top 5 Risk Factors")
+        st.write(selected_data.Risk.value_counts().sort_values(ascending=False).head(5))
+
+    with col2:
+        st.header("Age Distribution")
+        st.write(selected_data.Age.value_counts().sort_values(ascending=True))
 
 
    
